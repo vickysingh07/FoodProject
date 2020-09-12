@@ -14,7 +14,10 @@ Future main() async {
       home: Constants.prefs.getBool("loggedIn") == true
           ? HomePage()
           : LoginPage(),
-      routes: {"/home": (context) => HomePage()},
+      routes: {
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage()
+      },
     ),
   );
 }
