@@ -2,14 +2,42 @@ import 'package:food_project/file.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  Widget _allCategories({@required String images, @required String title}) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 58),
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Container(
+            //width: MediaQuery.of(context).size.width / 2,
+            height: 100,
+            //margin: EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  radius: 27,
+                  backgroundImage: AssetImage(images),
+                ),
+                Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                )
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[500],
-        leading: Container(
-          height: 20,
-        ),
         title: Container(
           child: Align(
             alignment: Alignment(1.0, -0.7),
@@ -31,6 +59,18 @@ class HomePage extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, "/login");
               })
         ],
+        leading: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              _allCategories(images: 'images/drink2.png', title: 'DRINK'),
+              _allCategories(images: 'images/pizza.png', title: 'PIZZA'),
+              _allCategories(images: 'images/burger.png', title: 'BURGER'),
+              _allCategories(images: 'images/sandwich.png', title: 'SANDWICH'),
+              _allCategories(images: 'images/icecream.png', title: 'ICE-CREAM')
+            ],
+          ),
+        ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         toolbarHeight: 161,
       ),
