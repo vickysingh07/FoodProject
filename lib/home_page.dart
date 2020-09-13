@@ -8,8 +8,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[500],
         leading: Container(
-          height: 50,
-          color: Colors.orange,
+          height: 20,
         ),
         title: Container(
           child: Align(
