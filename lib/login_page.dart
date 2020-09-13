@@ -83,6 +83,8 @@ class _LoginPageState extends State<LoginPage> {
                             width: 250,
                             height: 35,
                             child: RaisedButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30)),
                               elevation: 15,
                               onPressed: () {
                                 Constants.prefs.setBool("loggedIn", true);
