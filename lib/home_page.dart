@@ -132,7 +132,108 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
-            SingleChildScrollView(scrollDirection: Axis.vertical, child: Card())
+            Container(
+              height: 390,
+              width: 370,
+              child: ListView(
+                children: [
+                  Container(
+                    child: Card(
+                      child: Column(
+                        children: [
+                          Container(
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  radius: 35,
+                                  child: Image.asset(
+                                    'images/mark.jpg',
+                                    height: 40,
+                                  ),
+                                ),
+                                Text(
+                                  "Mark Zuckerberg",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                SizedBox(
+                                  width: 111,
+                                ),
+                                Icon(
+                                  Icons.favorite,
+                                  size: 12,
+                                  color: Colors.red[700],
+                                ),
+                                SizedBox(
+                                  width: 7,
+                                ),
+                                Text(
+                                  "160",
+                                  style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700),
+                                )
+                              ],
+                            ),
+                          ),
+                          Image(
+                            image: AssetImage('images/p5.jpg'),
+                            height: 300,
+                            width: 300,
+                          ),
+                          Container(
+                            child: Column(
+                              children: [
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(
+                                    "Pizza Margherita",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                      size: 13,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                      size: 13,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                      size: 13,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellow,
+                                      size: 13,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.grey,
+                                      size: 13,
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
