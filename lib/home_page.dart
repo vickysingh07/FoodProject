@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 370,
+              height: 405,
               width: 320,
               decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
               child: ListView(
@@ -149,12 +149,13 @@ class HomePage extends StatelessWidget {
                             child: Row(
                               children: [
                                 CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  radius: 35,
-                                  child: Image.asset(
-                                    'images/mark.jpg',
-                                    height: 40,
-                                  ),
+                                  //backgroundColor: Colors.white,
+                                  radius: 21,
+                                  backgroundImage:
+                                      AssetImage('images/mark.jpg'),
+                                ),
+                                SizedBox(
+                                  width: 5,
                                 ),
                                 Text(
                                   "Mark Zuckerberg",
@@ -163,7 +164,7 @@ class HomePage extends StatelessWidget {
                                       fontWeight: FontWeight.w700),
                                 ),
                                 SizedBox(
-                                  width: 111,
+                                  width: 101,
                                 ),
                                 Icon(
                                   Icons.favorite,
@@ -242,7 +243,7 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             Container(
-              height: 370,
+              height: 405,
               width: 320,
               decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
               child: ListView(
@@ -255,21 +256,17 @@ class HomePage extends StatelessWidget {
                             child: Row(
                               children: [
                                 CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  radius: 35,
-                                  child: Image.asset(
-                                    'images/mark.jpg',
-                                    height: 40,
-                                  ),
+                                  radius: 21,
+                                  backgroundImage: AssetImage('images/jan.png'),
                                 ),
                                 Text(
-                                  "Mark Zuckerberg",
+                                  "Jan Koum",
                                   style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700),
                                 ),
                                 SizedBox(
-                                  width: 111,
+                                  width: 121,
                                 ),
                                 Icon(
                                   Icons.favorite,
@@ -280,7 +277,7 @@ class HomePage extends StatelessWidget {
                                   width: 7,
                                 ),
                                 Text(
-                                  "160",
+                                  "170",
                                   style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w700),
