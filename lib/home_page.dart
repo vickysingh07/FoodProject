@@ -259,6 +259,9 @@ class HomePage extends StatelessWidget {
                                   radius: 21,
                                   backgroundImage: AssetImage('images/jan.png'),
                                 ),
+                                SizedBox(
+                                  width: 5,
+                                ),
                                 Text(
                                   "Jan Koum",
                                   style: TextStyle(
@@ -266,7 +269,7 @@ class HomePage extends StatelessWidget {
                                       fontWeight: FontWeight.w700),
                                 ),
                                 SizedBox(
-                                  width: 121,
+                                  width: 131,
                                 ),
                                 Icon(
                                   Icons.favorite,
