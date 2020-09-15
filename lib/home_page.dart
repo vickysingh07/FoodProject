@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
       @required double length,
       @required Color color}) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 1, 0, 30),
+      padding: const EdgeInsets.fromLTRB(0, 1, 0, 25),
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 10),
         height: 30,
@@ -99,29 +99,42 @@ class HomePage extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         toolbarHeight: 161,
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 100,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  _categories2(
-                      title: 'CAKE', length: 65, color: Colors.pink[300]),
-                  _categories2(
-                      title: 'PIE', length: 55, color: Colors.purple[300]),
-                  _categories2(
-                      title: 'ICE CREAM', length: 101, color: Colors.blue[500]),
-                  _categories2(
-                      title: 'CANNOLI',
-                      length: 85,
-                      color: Colors.cyanAccent[400]),
-                ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              height: 100,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _categories2(
+                        title: 'CAKE', length: 65, color: Colors.pink[300]),
+                    _categories2(
+                        title: 'PIE', length: 55, color: Colors.purple[300]),
+                    _categories2(
+                        title: 'ICE CREAM',
+                        length: 101,
+                        color: Colors.blue[500]),
+                    _categories2(
+                        title: 'CANNOLI',
+                        length: 85,
+                        color: Colors.cyanAccent[400]),
+                  ],
+                ),
               ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(1, 0, 200, 200),
+              child: Text(
+                "Most Popular",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SingleChildScrollView(scrollDirection: Axis.vertical, child: Card())
+          ],
+        ),
       ),
     );
   }
