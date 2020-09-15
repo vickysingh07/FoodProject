@@ -62,47 +62,49 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple[500],
-        title: Container(
-          child: Align(
-            alignment: Alignment(1.0, -0.7),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(80, 1, 0, 70),
-              child: Image.asset(
-                "images/foodlogo.png",
-                // fit: BoxFit.cover,
-                height: 50,
-              ),
-            ),
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
+          backgroundColor: Colors.lightBlue[500],
+          title: IconButton(
               icon: Icon(Icons.exit_to_app),
               onPressed: () {
                 Constants.prefs.setBool("loggedIn", false);
                 Navigator.pushReplacementNamed(context, "/login");
-              })
-        ],
-        leading: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              _allCategories(images: 'images/drink2.png', title: 'DRINK'),
-              _allCategories(images: 'images/pizza.png', title: 'PIZZA'),
-              _allCategories(images: 'images/burger.png', title: 'BURGER'),
-              _allCategories(images: 'images/sandwich.png', title: 'SANDWICH'),
-              _allCategories(images: 'images/icecream.png', title: 'ICE-CREAM')
-            ],
-          ),
-        ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        toolbarHeight: 161,
-      ),
+              })),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            Container(
+              color: Colors.deepPurple[500],
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(160, 40, 2, 2),
+                    child: Image.asset(
+                      "images/foodlogo.png",
+                      // fit: BoxFit.cover,
+                      height: 50,
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _allCategories(
+                            images: 'images/drink2.png', title: 'DRINK'),
+                        _allCategories(
+                            images: 'images/pizza.png', title: 'PIZZA'),
+                        _allCategories(
+                            images: 'images/burger.png', title: 'BURGER'),
+                        _allCategories(
+                            images: 'images/sandwich.png', title: 'SANDWICH'),
+                        _allCategories(
+                            images: 'images/icecream.png', title: 'ICE-CREAM')
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Container(
               height: 100,
               child: SingleChildScrollView(
@@ -136,7 +138,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 405,
+              height: 380,
               width: 320,
               decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
               child: ListView(
@@ -243,7 +245,7 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             Container(
-              height: 405,
+              height: 380,
               width: 320,
               decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
               child: ListView(
