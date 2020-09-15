@@ -126,15 +126,19 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(1, 0, 200, 200),
-              child: Text(
-                "Most Popular",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              padding: const EdgeInsets.fromLTRB(22, 0, 0, 12),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Most Popular",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             Container(
               height: 370,
               width: 320,
+              decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
               child: ListView(
                 children: [
                   Container(
@@ -240,6 +244,7 @@ class HomePage extends StatelessWidget {
             Container(
               height: 370,
               width: 320,
+              decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
               child: ListView(
                 children: [
                   Container(
