@@ -37,19 +37,23 @@ class HomePage extends StatelessWidget {
       {@required String title,
       @required double length,
       @required Color color}) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      height: 30,
-      width: length,
-      child: RaisedButton(
-        onPressed: () {},
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        child: Text(
-          title,
-          style: TextStyle(
-              fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(0, 1, 0, 30),
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        height: 30,
+        width: length,
+        child: RaisedButton(
+          onPressed: () {},
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          child: Text(
+            title,
+            style: TextStyle(
+                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          color: color,
         ),
-        color: color,
       ),
     );
   }
