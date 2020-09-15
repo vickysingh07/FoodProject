@@ -10,18 +10,18 @@ class HomePage extends StatelessWidget {
           return Container(
             //width: MediaQuery.of(context).size.width / 2,
             height: 100,
-            //margin: EdgeInsets.symmetric(horizontal: 10),
+            margin: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CircleAvatar(
-                  radius: 27,
+                  radius: 24,
                   backgroundImage: AssetImage(images),
                 ),
                 Text(
                   title,
                   style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 )
@@ -29,6 +29,27 @@ class HomePage extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _categories2(
+      {@required String title,
+      @required double length,
+      @required Color color}) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      height: 30,
+      width: length,
+      child: RaisedButton(
+        onPressed: () {},
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        child: Text(
+          title,
+          style: TextStyle(
+              fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
+        color: color,
       ),
     );
   }
@@ -74,7 +95,30 @@ class HomePage extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         toolbarHeight: 161,
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          Container(
+            height: 100,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  _categories2(
+                      title: 'CAKE', length: 65, color: Colors.pink[300]),
+                  _categories2(
+                      title: 'PIE', length: 55, color: Colors.purple[300]),
+                  _categories2(
+                      title: 'ICE CREAM', length: 101, color: Colors.blue[500]),
+                  _categories2(
+                      title: 'CANNOLI',
+                      length: 85,
+                      color: Colors.cyanAccent[400]),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
