@@ -30,12 +30,18 @@ class _LoginPageState extends State<LoginPage> {
                   width: 200,
                 ),
               ),
-              Text(
-                "Sign Up Free Account",
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w900,
+              Padding(
+                padding: const EdgeInsets.only(left: 18),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Sign Up Free Account",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                    ),
+                  ),
                 ),
               ),
               Center(
@@ -99,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                                   fontWeight: FontWeight.w900,
                                 ),
                               ),
-                              color: Colors.purple[700],
+                              color: Colors.deepPurple[500],
                             ),
                           ),
                         )

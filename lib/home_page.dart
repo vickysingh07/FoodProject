@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 212,
+              height: 218,
               decoration: BoxDecoration(
                   color: Colors.deepPurple[500],
                   shape: BoxShape.rectangle,
@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(160, 2, 2, 2),
+                    padding: const EdgeInsets.fromLTRB(160, 8, 2, 2),
                     child: Image.asset(
                       "images/foodlogo.png",
                       //fit: BoxFit.cover,
@@ -119,7 +119,10 @@ class HomePage extends StatelessWidget {
                           _allCategories(
                               images: 'images/sandwich.png', title: 'SANDWICH'),
                           _allCategories(
-                              images: 'images/icecream.png', title: 'ICE-CREAM')
+                              images: 'images/icecream.png',
+                              title: 'ICE-CREAM'),
+                          _allCategories(
+                              images: 'images/hotdog.jpg', title: 'HOTDOG'),
                         ],
                       ),
                     ),
