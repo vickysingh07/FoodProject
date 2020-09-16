@@ -1,5 +1,5 @@
-import 'package:food_project/file.dart';
 import 'package:flutter/material.dart';
+import 'package:food_project/file.dart';
 
 class HomePage extends StatelessWidget {
   Widget _allCategories({@required String images, @required String title}) {
@@ -16,7 +16,9 @@ class HomePage extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 24,
-                  backgroundImage: AssetImage(images),
+                  backgroundImage: AssetImage(
+                    images,
+                  ),
                 ),
                 Text(
                   title,
@@ -62,44 +64,64 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.lightBlue[500],
-          title: IconButton(
-              icon: Icon(Icons.exit_to_app),
-              onPressed: () {
-                Constants.prefs.setBool("loggedIn", false);
-                Navigator.pushReplacementNamed(context, "/login");
-              })),
+          backgroundColor: Colors.yellow[500],
+          title: Text("Hungry Time App",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                color: Colors.pink,
+              )),
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(
+                  Icons.exit_to_app,
+                  color: Colors.pink,
+                ),
+                onPressed: () {
+                  Constants.prefs.setBool("loggedIn", false);
+                  Navigator.pushReplacementNamed(context, "/login");
+                }),
+          ]),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Container(
-              color: Colors.deepPurple[500],
+              height: 212,
+              decoration: BoxDecoration(
+                  color: Colors.deepPurple[500],
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0))),
+              //color: Colors.deepPurple[500],
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(160, 40, 2, 2),
+                    padding: const EdgeInsets.fromLTRB(160, 2, 2, 2),
                     child: Image.asset(
                       "images/foodlogo.png",
-                      // fit: BoxFit.cover,
+                      //fit: BoxFit.cover,
                       height: 50,
                     ),
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        _allCategories(
-                            images: 'images/drink2.png', title: 'DRINK'),
-                        _allCategories(
-                            images: 'images/pizza.png', title: 'PIZZA'),
-                        _allCategories(
-                            images: 'images/burger.png', title: 'BURGER'),
-                        _allCategories(
-                            images: 'images/sandwich.png', title: 'SANDWICH'),
-                        _allCategories(
-                            images: 'images/icecream.png', title: 'ICE-CREAM')
-                      ],
+                  Container(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          _allCategories(
+                              images: 'images/drink2.png', title: 'DRINK'),
+                          _allCategories(
+                              images: 'images/pizza.png', title: 'PIZZA'),
+                          _allCategories(
+                              images: 'images/burger.png', title: 'BURGER'),
+                          _allCategories(
+                              images: 'images/sandwich.png', title: 'SANDWICH'),
+                          _allCategories(
+                              images: 'images/icecream.png', title: 'ICE-CREAM')
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -351,4 +373,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  widget({IconButton child}) {}
 }
