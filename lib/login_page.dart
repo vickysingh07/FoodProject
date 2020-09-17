@@ -7,6 +7,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  var _formKey = GlobalKey<FormState>();
   final userNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -51,37 +52,58 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       children: [
                         Form(
+                            key: _formKey,
                             child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              TextFormField(
-                                decoration: InputDecoration(
-                                    hintText: "Enter UserName",
-                                    labelText: "UserName"),
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: [
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                        hintText: "Enter UserName",
+                                        labelText: "UserName"),
+                                    validator: (String value) {
+                                      if (value.isEmpty) {
+                                        return "Please Enter Username";
+                                      }
+                                    },
+                                  ),
+                                  SizedBox(height: 10.0),
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                        hintText: "Enter Email",
+                                        labelText: "Email"),
+                                    validator: (String value) {
+                                      if (value.isEmpty) {
+                                        return "Please Enter Email";
+                                      }
+                                    },
+                                  ),
+                                  SizedBox(height: 10.0),
+                                  TextFormField(
+                                    obscureText: true,
+                                    decoration: InputDecoration(
+                                        hintText: "Enter Password",
+                                        labelText: "Password"),
+                                    validator: (String value) {
+                                      if (value.isEmpty) {
+                                        return "Please Enter Password";
+                                      }
+                                    },
+                                  ),
+                                  SizedBox(height: 10.0),
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                        hintText: "Enter Phone Number",
+                                        labelText: "Phone"),
+                                    validator: (String value) {
+                                      if (value.isEmpty) {
+                                        return "Please Enter Phone Number";
+                                      }
+                                    },
+                                  )
+                                ],
                               ),
-                              SizedBox(height: 10.0),
-                              TextFormField(
-                                decoration: InputDecoration(
-                                    hintText: "Enter Email",
-                                    labelText: "Email"),
-                              ),
-                              SizedBox(height: 10.0),
-                              TextFormField(
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                    hintText: "Enter Password",
-                                    labelText: "Password"),
-                              ),
-                              SizedBox(height: 10.0),
-                              TextFormField(
-                                decoration: InputDecoration(
-                                    hintText: "Enter Phone",
-                                    labelText: "Phone"),
-                              )
-                            ],
-                          ),
-                        )),
+                            )),
                         SizedBox(height: 20.0),
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
@@ -93,9 +115,11 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.circular(30)),
                               elevation: 15,
                               onPressed: () {
-                                Constants.prefs.setBool("loggedIn", true);
-                                Navigator.pushReplacementNamed(
-                                    context, "/home");
+                                if (_formKey.currentState.validate()) {
+                                  Constants.prefs.setBool("loggedIn", true);
+                                  Navigator.pushReplacementNamed(
+                                      context, "/home");
+                                }
                               },
                               child: Text(
                                 "Sign Up",
